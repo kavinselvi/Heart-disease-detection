@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>ECG Arrhythmia Classification</title>
+	</head>
+	<style>
+	body
+	{
+		background-image:url({{url_for('static',filename='image/heart.jpg')}})
+	}
+	span 
+	{
+  background-color: #00000;
+     }
+	</style>
+    <body>
+
+        <!-- Website Title -->
+		<div class="container">
+            <h2 class='container-heading'><span class="heading_font">ECG Arrhythmia Classification</span></h2>
+            <div class='description'>
+    			<p>ECG Arrhythmia Classification</p>
+    		</div>
+    	</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==0 %}
+				<h1>Prediction: <span class='danger'>Atrial fibrillation .</span></h1>
+
+			{% elif prediction==1 %}
+				<h1>Prediction: <span class='safe'>Ventricular tachycardia.</span></h1>
+
+			{% elif prediction==2 %}
+				<h1>Prediction: <span class='safe'>Ventricular fibrillation .</span></h1>
+
+			{% elif prediction==3 %}
+				<h1>Prediction: <span class='safe'>Atrial flutter.</span></h1>
+			{% elif prediction==4 %}
+				<h1>Prediction: <span class='safe'>Bradycardia.</span></h1>
+
+			{% elif prediction==5 %}
+				<h1>Prediction: <span class='safe'>Sinus tachycardia.</span></h1>
+			{% endif %}
+		</div>
+
+
+
+	</body>
+</html>
